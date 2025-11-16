@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Rose Day!</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Dark animated gradient background */
+    body {
+      background: linear-gradient(-45deg, #050509, #130c1a, #221028, #3a102b);
+      background-size: 400% 400%;
+      animation: darkFlow 22s ease-in-out infinite;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    @keyframes darkFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Style for the 'Great Vibes' font */
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .text-glow-pink {
+      animation: glow 2.5s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        text-shadow: 0 0 8px #f472b6, 0 0 15px #f472b6;
+      }
+      50% {
+        text-shadow: 0 0 22px #f472b6, 0 0 45px #f472b6;
+      }
+    }
+
+    .animated-image {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .25s ease;
+      border: none;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-rose {
+      background: linear-gradient(135deg,#ec4899,#db2777);
+      color: #fff;
+      box-shadow: 0 0 18px rgba(219,39,119,0.7);
+    }
+
+    .btn-rose:hover {
+      transform: translateY(-1px) scale(1.05);
+      box-shadow: 0 0 28px rgba(219,39,119,0.9);
+    }
+
+    .btn-rose-secondary {
+      background: transparent;
+      color: #f9a8d4;
+      border: 1px solid #f472b6;
+    }
+
+    .btn-rose-secondary:hover {
+      background: #f472b615;
+    }
+
+    .step-content {
+      animation: fadeIn .8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-img {
+      width: 56px;
+      height: 56px;
+      animation: rotate 7s linear infinite;
+      filter: drop-shadow(0 0 10px rgba(244,114,182,0.7));
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .lyric-line {
+      animation: lyricFade 3.5s ease-in-out forwards;
+    }
+
+    @keyframes lyricFade {
+      0%     { opacity: 0; transform: translateY(10px); }
+      20%,80% { opacity: 1; transform: translateY(0); }
+      100%   { opacity: 0; transform: translateY(-10px); }
+    }
+  </style>
+</head>
+
+<body class="text-center flex items-center justify-center p-4 min-h-screen">
+
+  <!-- Corner element removed -->
+
+  <!-- Main container with all steps -->
+  <div
+    class="w-full max-w-lg mx-auto bg-black/60 backdrop-blur-xl rounded-3xl border border-pink-500/30 px-6 py-6 sm:px-8 sm:py-8 shadow-[0_22px_60px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto"
+  >
+
+    <!-- STEP 1: Welcome -->
+    <div id="step-1" class="step-content space-y-6">
+      <!-- Added .font-script class here -->
+      <h1 class="font-script text-5xl sm:text-6xl text-pink-400 text-glow-pink">
+        Happy Rose Day!
+      </h1>
+      <!-- Improved readability with text-gray-200 -->
+      <p class="text-gray-200 text-base sm:text-lg">
+        Got a little something just for you...
+      </p>
+
+      <!-- Main rose -->
+      <img
+        src="https://i.ibb.co/Jq7Hk1P/rose1.gif"
+        alt="Rose animation"
+        class="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-2xl shadow-2xl animated-image"
+        onerror="this.src='https://placehold.co/192x192/db2777/ffffff?text=Rose+Missing'; this.onerror=null;"
+      >
+
+      <button onclick="nextStep(2)" class="btn btn-rose w-full sm:w-auto">
+        Click to begin
+      </button>
+    </div>
+
+    <!-- STEP 2: What a rose means -->
+    <div id="step-2" class="step-content space-y-6 hidden">
+      <!-- Added .font-script class here -->
+      <h2 class="font-script text-4xl sm:text-5xl text-gray-100 text-glow-pink">
+        What a rose really means...
+      </h2>
+      <!-- Improved readability with text-gray-200 -->
+      <p class="text-gray-200 text-base sm:text-lg">
+        It carries tiny pieces of everything sweet between us: love, joy, and those random little moments that make you smile for no reason.
+      </p>
+
+      <button onclick="nextStep(3)" class="btn btn-rose w-full sm:w-auto">
+        Next →
+      </button>
+    </div>
+
+    <!-- STEP 3: It's a way to say... -->
+    <div id="step-3" class="step-content space-y-6 hidden">
+      <!-- Added .font-script class here -->
+      <h2 class="font-script text-4xl sm:text-5xl text-gray-100 text-glow-pink">
+        It's a way to say...
+      </h2>
+      <!-- Improved readability with text-gray-200 -->
+      <p class="text-gray-200 text-base sm:text-lg">
+        ...everything the heart feels when words get shy.
+      </p>
+
+      <!-- Another rose -->
+      <img
+        src="https://i.ibb.co/Jq7Hk1P/rose1.gif"
+        alt="Rose again"
+        class="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-2xl shadow-2xl animated-image"
+        onerror="this.src='https://placehold.co/192x192/db2777/ffffff?text=Rose+Missing'; this.onerror=null;"
+      >
+
+      <button onclick="nextStep(4)" class="btn btn-rose w-full sm:w-auto">
+        Go on...
+      </button>
+    </div>
+
+    <!-- STEP 4: It's a promise... -->
+    <div id="step-4" class="step-content space-y-6 hidden">
+      <!-- Added .font-script class here -->
+      <h2 class="font-script text-4xl sm:text-5xl text-gray-100 text-glow-pink">
+        It's a promise...
+      </h2>
+      <!-- Improved readability with text-gray-200 -->
+      <p class="text-gray-200 text-base sm:text-lg">
+        ...that there are still so many beautiful moments waiting for us.
+      </p>
+
+      <!-- Heart & rose -->
+      <img
+        src="https://media4.giphy.com/media/wPnbkEcr2tXiTN0Lmq/giphy.gif"
+        alt="Heart and rose"
+        class="w-56 h-56 sm:w-64 sm:h-64 mx-auto rounded-2xl shadow-2xl animated-image"
+        onerror="this.src='https://placehold.co/256x256/db2777/ffffff?text=Heart+Missing'; this.onerror=null;"
+      >
+
+      <button onclick="nextStep(5)" class="btn btn-rose w-full sm:w-auto">
+        Continue...
+      </button>
+    </div>
+
+    <!-- STEP 5: Song + synced lines -->
+    <div id="step-5" class="step-content space-y-7 hidden">
+      <!-- Added .font-script class here -->
+      <h2 class="font-script text-4xl sm:text-5xl text-gray-100 text-glow-pink">
+        A few lines for you...
+      </h2>
+
+      <div
+        id="lyric-container"
+        class="h-20 flex items-center justify-center px-4 rounded-2xl bg-black/60 border border-pink-500/30 shadow-inner"
+      >
+        <!-- Lyrics will be injected here -->
+      </div>
+
+      <!--
+        IMPORTANT AUDIO INSTRUCTIONS:
+        I've used a public, royalty-free piano track below so it works.
+        To use YOUR own song:
+        1. Upload your song (e.g., "song.mp3") to Google Drive, Dropbox, or a similar service.
+        2. Get a *direct, public shareable link* to the file.
+        3. Replace the `src` URL below with your new link.
+        4. Adjust the `lyricTimeline` times in the <script> tag to match your song!
+      -->
+      <audio id="song" src="song.mp3" preload="auto"></audio>
+      <p id="song-status" class="text-xs sm:text-sm text-gray-400 min-h-[1.25rem]"></p>
+
+      <button onclick="nextStep(6)" class="btn btn-rose w-full sm:w-auto">
+        See your gift
+      </button>
+    </div>
+
+    <!-- STEP 6: Gift → rose -->
+    <div id="step-6" class="step-content space-y-6 hidden">
+
+      <!-- Gift state -->
+      <div id="gift-step" class="space-y-4">
+        <!-- Gift box image -->
+        <img
+          src="https://i.ibb.co/2h5wTGt/giftbox.gif"
+          alt="Gift Box"
+          class="w-32 h-32 sm:w-40 sm:h-40 mx-auto animated-image"
+          onerror="this.src='https://placehold.co/160x160/db2777/ffffff?text=Gift+Missing'; this.onerror=null;"
+        >
+
+        <!-- Improved readability with text-gray-200 -->
+        <p class="text-gray-200 text-base sm:text-lg">
+          There's a tiny surprise waiting inside for you. Ready to open it?
+        </p>
+
+        <button onclick="openGift()" class="btn btn-rose w-full sm:w-auto">
+          Open the gift
+        </button>
+      </div>
+
+      <!-- Rose reveal state -->
+      <div id="rose-step" class="space-y-6 hidden">
+        <!-- Rose opening image -->
+        <img
+          src="https://i.ibb.co/kBynw0H/roseopen.gif"
+          alt="Rose Opening"
+          class="w-40 h-40 sm:w-48 sm:h-48 mx-auto animated-image"
+          onerror="this.src='https://placehold.co/192x192/db2777/ffffff?text=Rose+Opening...'; this.onerror=null;"
+        >
+
+        <!-- Added .font-script class here -->
+        <h2 class="font-script text-5xl sm:text-6xl text-pink-400 text-glow-pink">
+          Happy Rose Day!
+        </h2>
+
+        <!-- Improved readability with text-gray-200 -->
+        <p class="text-gray-200 text-base sm:text-lg">
+          This rose is just a tiny hint of how special you are to me.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <button onclick="nextStep(7)" class="btn btn-rose w-full sm:w-auto">
+            One last surprise... →
+          </button>
+          <button onclick="restart()" class="btn btn-rose-secondary w-full sm:w-auto">
+            Restart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 7: QR surprise -->
+    <div id="step-7" class="step-content space-y-6 hidden">
+      <!-- Added .font-script class here -->
+      <h2 class="font-script text-4xl sm:text-5xl text-pink-400 text-glow-pink">
+        For you, from me
+      </h2>
+      <!-- Improved readability with text-gray-200 -->
+      <p class="text-gray-200 text-base sm:text-lg">
+        Scan this when you're ready for a little extra love...
+      </p>
+
+      <!-- QR image (replace src with your own QR from Drive) -->
+      <img
+        src="https://i.ibb.co/tQZLJ8H/sample-qr.png"
+        alt="QR Code Surprise"
+        class="w-48 h-48 sm:w-56 sm:h-56 mx-auto rounded-2xl shadow-2xl bg-white"
+        onerror="this.src='https://placehold.co/224x224/db2777/ffffff?text=QR+Code'; this.onerror=null;"
+      >
+
+      <!-- Added your Insta ID here -->
+      <p class="text-gray-400 text-sm pt-2">
+        Insta: 503_kamil
+      </p>
+
+      <button onclick="restart()" class="btn btn-rose-secondary w-full sm:w-auto">
+        Restart
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+
+    // Song + lyrics sync
+    let song = null;
+    let songStatus = null;
+    let activeLyricIndex = -1;
+
+    // Timeline (seconds) for each line relative to the song
+    // 👉 Change the `time` values to match YOUR song
+    const lyricTimeline = [
+      { time: 2,   text: "My heart keeps saying your name..." },
+      { time: 7,   text: "Every beat is a tiny flame." },
+      { time: 12,  text: "A rose is more than just a rose," },
+      { time: 18,  text: "it's every soft feeling my heart knows." },
+      { time: 25,  text: "For you. Only you." },
+      { time: 30,  text: "Always." }
+    ];
+
+    function showStep(step) {
+      const current = document.getElementById('step-' + currentStep);
+      if (current) current.classList.add('hidden');
+
+      // Leaving step 5: stop song & clear lyrics
+      if (currentStep === 5) {
+        cleanupSong();
+      }
+
+      const next = document.getElementById('step-' + step);
+      if (next) {
+        next.classList.remove('hidden');
+        next.classList.remove('step-content');
+        void next.offsetWidth;
+        next.classList.add('step-content');
+      }
+
+      currentStep = step;
+
+      // Entering step 5: start song + sync lyrics
+      if (currentStep === 5) {
+        initSongAndLyrics();
+      }
+    }
+
+    function nextStep(step) {
+      showStep(step);
+    }
+
+    function initSongAndLyrics() {
+      const container = document.getElementById('lyric-container');
+      song = document.getElementById('song');
+      songStatus = document.getElementById('song-status');
+      activeLyricIndex = -1;
+
+      if (!song || !container) return;
+
+      container.innerHTML = "";
+      if (songStatus) songStatus.textContent = "";
+
+      // Reset song position
+      song.currentTime = 0;
+
+      // Attach listener for timeupdate
+      song.addEventListener('timeupdate', onSongTimeUpdate);
+      song.addEventListener('ended', onSongEnded);
+      song.addEventListener('error', onSongError);
+
+      // Try autoplay
+      song.play().then(() => {
+        if (songStatus) {
+          songStatus.textContent = "Playing... 💗";
+        }
+        // Clear message after a few seconds
+        setTimeout(() => {
+          if (currentStep === 5 && songStatus) songStatus.textContent = "";
+        }, 3000);
+      }).catch(() => {
+        // Browser blocked autoplay
+        if (songStatus) {
+          songStatus.textContent = "Tap anywhere to start the music 🎵";
+        }
+        document.body.addEventListener('click', tryPlayOnUserGesture, { once: true });
+      });
+    }
+
+    function tryPlayOnUserGesture() {
+      if (!song) return;
+      song.play().then(() => {
+        if (songStatus) songStatus.textContent = "Playing... 💗";
+        setTimeout(() => {
+          if (currentStep === 5 && songStatus) songStatus.textContent = "";
+        }, 3000);
+      }).catch(() => {
+        if (songStatus) songStatus.textContent = "Could not play audio. Check volume.";
+      });
+    }
+
+    function onSongTimeUpdate() {
+      if (!song) return;
+      const container = document.getElementById('lyric-container');
+      if (!container) return;
+
+      const currentTime = song.currentTime;
+
+      // Find the latest lyric whose time <= currentTime
+      let idx = -1;
+      for (let i = 0; i < lyricTimeline.length; i++) {
+        if (lyricTimeline[i].time <= currentTime) {
+          idx = i;
+        } else {
+          break;
+        }
+      }
+
+      if (idx !== -1 && idx !== activeLyricIndex) {
+        activeLyricIndex = idx;
+        const line = lyricTimeline[idx].text;
+
+        const p = document.createElement('p');
+        p.textContent = line;
+        p.className = 'lyric-line text-xl sm:text-2xl text-pink-300 font-light';
+
+        container.innerHTML = "";
+        container.appendChild(p);
+      }
+    }
+
+    function onSongEnded() {
+      const container = document.getElementById('lyric-container');
+      if (container) {
+        container.innerHTML = "<p class='text-xl sm:text-2xl text-pink-300 font-light'>💗</p>";
+      }
+      activeLyricIndex = -1;
+    }
+
+    function onSongError() {
+       if (songStatus) {
+        songStatus.textContent = "Error loading the song. 😞";
+       }
+       // You could also hide the lyric container
+       const container = document.getElementById('lyric-container');
+       if (container) container.innerHTML = "";
+    }
+
+    function cleanupSong() {
+      const container = document.getElementById('lyric-container');
+      if (container) container.innerHTML = "";
+
+      if (song) {
+        song.pause();
+        song.currentTime = 0;
+        song.removeEventListener('timeupdate', onSongTimeUpdate);
+        song.removeEventListener('ended', onSongEnded);
+        song.removeEventListener('error', onSongError);
+      }
+      if (songStatus) songStatus.textContent = "";
+      activeLyricIndex = -1;
+    }
+
+    function openGift() {
+      const gift = document.getElementById('gift-step');
+      const rose = document.getElementById('rose-step');
+      if (!gift || !rose) return;
+
+      gift.classList.add('hidden');
+      rose.classList.remove('hidden');
+    }
+
+    function restart() {
+      // Reset gift/rose internal state
+      const gift = document.getElementById('gift-step');
+      const rose = document.getElementById('rose-step');
+      if (gift && rose) {
+        rose.classList.add('hidden');
+        gift.classList.remove('hidden');
+      }
+
+      // Clean up song/lyrics if we were in step 5
+      cleanupSong();
+
+      // Hide all steps
+      for (let i = 1; i <= 7; i++) {
+        const stepEl = document.getElementById('step-' + i);
+        if (stepEl) stepEl.classList.add('hidden');
+      }
+
+      // Show step 1 again
+      const first = document.getElementById('step-1');
+      if (first) {
+        first.classList.remove('hidden');
+        first.classList.remove('step-content');
+        void first.offsetWidth;
+        first.classList.add('step-content');
+      }
+
+      currentStep = 1;
+    }
+  </script>
+</body>
+</html>
